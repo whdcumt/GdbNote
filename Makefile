@@ -1,11 +1,12 @@
 .PHONY:clean
-main:main.o add.o sub.o
-	gcc -Wall -g main.o add.o sub.o -o main
+OBJECTS=main.o add.o sub.o
+main:$(OBJECTS)
+	gcc -Wall -g $^ -o $@
 main.o:main.c
-	gcc -Wall -g -c main.c -o main.o
+	gcc -Wall -g -c $< -o $@
 add.o:add.c add.h
-	gcc -Wall -g -c add.c -o add.o
+	gcc -Wall -g -c $< -o $@
 sub.o:sub.c sub.h
-	gcc -Wall -g -c sub.c -o sub.o
+	gcc -Wall -g -c $< -o $@
 clean:
-	rm -f main main.o add.o sub.o
+	rm -f main $(OBJECTS)

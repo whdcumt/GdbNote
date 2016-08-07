@@ -1,11 +1,17 @@
 .PHONY:clean all
-BIN=01test 02test
+CC=gcc
+CFLAGS=-Wall -g
+BIN=01test 02test 03test 04test
 all:$(BIN)
-%.o:%.c
-	gcc -Wall -g -c $^ -o $@
+#%.o:%.c
+#	$(CC) $(CFLAGS) -c $^ -o $@
+.c.o:
+	$(CC) $(CFLAGS) -c $^ -o $@
 01test:01test.o
-	gcc -Wall -g $^ -o 01test
+	$(CC) $(CFLAGS)  $^ -o 01test
 02test:02test.o
-	gcc -Wall -g $^ -o 02test
+	$(CC) $(CFLAGS)  $^ -o 02test
+03test:03test.o pub.o
+	$(CC) $(CFLAGS)  $^ -o 03test
 clean:
 	rm -f *.o $(BIN)

@@ -1,0 +1,7 @@
+SUBDIRS=test1 test2
+.PHONY:default all clean $(SUBDIR)
+default:all
+all clean:
+	$(MAKE) $(SUBDIRS) TARGET=$@
+$(SUBDIRS):
+	$(MAKE) -c $@ $(TARGET)

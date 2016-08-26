@@ -7,10 +7,9 @@ void segfault()
 }
 int main(void)
 {
-    segfault();
- /*   char buf[1]="a";
-      buf[10003]='A'
+ //    segfault();
+      char buf[2]="a";
+      buf[10003]='A';
      printf("%c\n",buf[10003]);
-  */
      return 0;
 }
